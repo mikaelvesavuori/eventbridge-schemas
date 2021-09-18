@@ -1,0 +1,14 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "The root schema",
+  "required": ["registryName"],
+  "properties": {
+    "registryName": {
+      "type": "string",
+      "title": "The registryName schema",
+      "description": "Registry name"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+service: eventbridge-schemas
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'shared'}
+  region: eu-north-1
+  memorySize: 1024
+  timeout: 10
+  logRetentionInDays: 7
+  versionFunctions: false
+  lambdaHashingVersion: 20201221
+  deploymentBucket:
+    blockPublicAccess: true
+    maxPreviousDeploymentArtifacts: 5
+    serverSideEncryption: AES256
+  stackTags:
+    Usage: ${self:service}
+  tags:
+    Usage: ${self:service}
+  apiGateway:
+    minimumCompressionSize: 1024
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+package:
+  individually: true
+  patterns:
+    - node_modules/aws-sdk/**
+    - node_modules/aws-lambda/**
+
+functions:
+  CreateSchema:
+    handler: src/controllers/create.handler
+    description: Create EventBridge schema
+    events:
+      - http:
+          method: POST
+          path: /schema
+          request:
+            schema:
+              application/json: ${file(api/schema.json)}
+  UpdateSchema:
+    handler: src/controllers/update.handler
+    description: Update EventBridge schema
+    events:
+      - http:
+          method: PUT
+          path: /schema
+          request:
+            schema:
+              application/json: ${file(api/schema.json)}
+  ListSchemas:
+    handler: src/controllers/list.handler
+    description: List EventBridge schemas
+    events:
+      - http:
+          method: GET
+          path: /schema
+          request:
+            schema:
+              application/json: ${file(api/schema.list.json)}

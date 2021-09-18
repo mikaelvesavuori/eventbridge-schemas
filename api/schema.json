@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "The root schema",
+  "definitions": {
+    "content": {
+      "type": "object",
+      "properties": {}
+    },
+    "type": {
+      "type": "string",
+      "enum": ["OpenApi3", "JSONSchemaDraft4"]
+    }
+  },
+  "required": ["content", "description", "registryName", "schemaName", "type"],
+  "properties": {
+    "content": {
+      "$ref": "#/definitions/content",
+      "type": "object",
+      "title": "The content schema",
+      "description": "Schema content"
+    },
+    "description": {
+      "type": "string",
+      "title": "The description schema",
+      "description": "Description of the schema"
+    },
+    "registryName": {
+      "type": "string",
+      "title": "The registryName schema",
+      "description": "Name of the registry"
+    },
+    "schemaName": {
+      "type": "string",
+      "title": "The schemaName schema",
+      "description": "Schema name"
+    },
+    "type": {
+      "type": "string",
+      "title": "The type schema",
+      "description": "Type of schema ('OpenApi3' or 'JSONSchemaDraft4')"
+    }
+  }
+}

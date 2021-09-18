@@ -1,0 +1,32 @@
+{
+  "name": "eventbridge-schemas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx sls offline",
+    "deploy": "npx sls deploy",
+    "remove": "npx sls remove"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-schemas": "3"
+  },
+  "devDependencies": {
+    "@babel/core": "7",
+    "@types/node": "latest",
+    "babel-loader": "8",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "prettier": "2",
+    "serverless": "2",
+    "serverless-offline": "8",
+    "serverless-webpack": "5",
+    "ts-loader": "9",
+    "typescript": "4",
+    "webpack": "5"
+  }
+}

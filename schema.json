@@ -1,0 +1,21 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Event"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "Event": {
+        "type": "object",
+        "required": ["something"],
+        "properties": {
+          "something": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
